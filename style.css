@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #020812;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 45px;
+    margin-top: 40px;
+}
+
+h1 span {
+    color: #baff39;
+}
+
+.garden {
+    width: 85%;
+    height: 65vh;
+    margin: 60px auto 0;
+    border: 3px solid white;
+    position: relative;
+    background: linear-gradient(#030020, #000);
+    overflow: hidden;
+}
+
+.flower {
+    position: absolute;
+    width: 200px;
+    height: 350px;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+}
+
+/* STEM */
+
+.stem {
+    position: absolute;
+    width: 6px;
+    height: 190px;
+    background: #ff5a1f;
+    left: 97px;
+    bottom: 45px;
+    border-radius: 10px;
+
+    box-shadow:
+        0 0 5px #ff5a1f,
+        0 0 12px #ff5a1f,
+        0 0 22px #ff3300;
+
+    transform-origin: bottom;
+    animation: growStem 2s ease-out forwards;
+}
+
+/* LEAVES */
+
+.leaf {
+    position: absolute;
+    width: 55px;
+    height: 25px;
+
+    background: #ff5a1f;
+
+    box-shadow:
+        0 0 8px #ff5a1f,
+        0 0 18px #ff3300;
+
+    opacity: 0;
+
+    animation: showLeaf 1s ease forwards;
+}
+
+/* LEFT LEAVES */
+
+.leaf1 {
+    left: 45px;
+    bottom: 170px;
+
+    border-radius: 100% 0 100% 0;
+
+    transform: rotate(25deg);
+
+    animation-delay: 1.2s;
+}
+
+.leaf3 {
+    left: 45px;
+    bottom: 220px;
+
+    border-radius: 100% 0 100% 0;
+
+    transform: rotate(25deg);
+
+    animation-delay: 2s;
+}
+
+/* RIGHT LEAVES */
+
+.leaf2 {
+    left: 100px;
+    bottom: 195px;
+
+    border-radius: 0 100% 0 100%;
+
+    transform: rotate(-25deg);
+
+    animation-delay: 1.6s;
+}
+
+.leaf4 {
+    left: 100px;
+    bottom: 245px;
+
+    border-radius: 0 100% 0 100%;
+
+    transform: rotate(-25deg);
+
+    animation-delay: 2.4s;
+}
+
+/* GRASS */
+
+.grass {
+    position: absolute;
+
+    width: 4px;
+    height: 70px;
+
+    bottom: 20px;
+    left: 98px;
+
+    background: #ff5a1f;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 8px #ff5a1f,
+        0 0 15px #ff3300;
+
+    transform-origin: bottom;
+
+    opacity: 0;
+
+    animation: growGrass 1.5s ease forwards;
+
+    animation-delay: 2.5s;
+}
+
+.grass1 {
+    transform: rotate(-35deg);
+}
+
+.grass2 {
+    transform: rotate(-18deg);
+}
+
+.grass3 {
+    transform: rotate(18deg);
+}
+
+.grass4 {
+    transform: rotate(35deg);
+}
+
+/* ANIMATIONS */
+
+@keyframes growStem {
+
+    from {
+        transform: scaleY(0);
+    }
+
+    to {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes showLeaf {
+
+    from {
+        opacity: 0;
+        filter: brightness(0);
+    }
+
+    to {
+        opacity: 1;
+        filter: brightness(1);
+    }
+}
+
+@keyframes growGrass {
+
+    from {
+        opacity: 0;
+        height: 0;
+    }
+
+    to {
+        opacity: 1;
+        height: 70px;
+    }
+}
